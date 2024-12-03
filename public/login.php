@@ -26,7 +26,14 @@
                                         <label for="username" class="form-label">Usuario</label>    
                                         <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
                                         <label for="password" class="col-form-label">Contraseña</label>
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                                        <div class="row">
+                                            <div class="col">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                                            </div>
+                                            <div class="col-2">
+                                                <img id="showPassword" src="./src/assets/icons/key.png" alt="show-password" style="cursor: pointer;">
+                                            </div>
+                                        </div>
                                         <p class="mt-2">Debe estar entre 8 y 20 caracteres</p>   
                                     </div>    
                                 </div>
@@ -39,8 +46,7 @@
                                     </div>
                                 </div>
                                 <!-- botones -->
-                            </div>
-                                
+                            </div> 
                         </form>
                         <!-- formulario de login -->
 
@@ -51,5 +57,18 @@
         
         <footer></footer>
     </div>
+
+    <script>
+        let password = document.getElementById('password');
+        let btnPassword = document.getElementById('showPassword');
+
+        btnPassword.onclick = function(){
+            if(password.type == "password"){
+                password.type = "text";
+            } else{
+                password.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
