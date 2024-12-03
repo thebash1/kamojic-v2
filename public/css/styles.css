@@ -1,4 +1,4 @@
-:root{
+/* :root{
     --primary-color: #FDD3D0;
     --secondary-color: #000000;
 }
@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+*/
 
 .container-father{
     min-height: 100dvh;
@@ -15,7 +16,7 @@
     grid-template-rows: auto 1fr auto;
 }
 
-.container-center{
+/* .container-center{
     display: grid;
     place-content: center;
     place-items: center;
@@ -23,8 +24,9 @@
 
 label, input{
     font-family: Verdana, sans-serif;
-/*valores: arriba, derecha, abajo, izquierda */
+    margin: arriba, derecha, abajo, izquierda
     margin: 3rem 0 3rem 0 ; 
     border-radius: 5rem;
     box-shadow: 3rem 3rem;
-}
+} 
+*/
