@@ -8,23 +8,31 @@
         *{
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box;        
         }
         .container{
-            margin: 5rem 0 5rem 5rem;
+            margin: 1rem 1rem 0 0;
         }
-        h1{
-            text-align: start;
-            margin-bottom: 3rem;
+        ul{
+            list-style-type: none;
+        }
+        li{
+            margin: 1rem 0 1rem 0;
+        }
+        a{
+            color: black;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Index of Kamojic</h1>
-        <a href="./public/login.php">Ir a login</a>
-        <a href="./public/register.php">Ir a registro</a>
-        <a href="./config/database.php">Conexión base de datos</a>
+        <ul>
+            <li><a href="./public/login.php">1. Ir a login</a></li>
+            <li><a href="./public/register.php">2. Ir a registro</a></li>
+            <li><a href="./config/database.php">3. Conexión base de datos</a></li>
+        </ul>
     </div>
 </body>
 </html>
