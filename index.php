@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index of Kamojic</title>
+    <link rel="shortcut icon" href="./public/src/assets/icons/directories.png" type="image/x-icon">
     <style>
         *{
             margin: 0;

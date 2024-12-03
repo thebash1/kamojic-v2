@@ -21,20 +21,26 @@
                         <!-- formulario de login -->
                         <form action="../app/controllers/login.php" method="POST">
                             <div class="form mb-3">
-                                <label for="username" class="form-label">Usuario</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Usuario"><br>
+                                <div class="mt-5 row justify-content-center align-items-center">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label for="username" class="form-label">Usuario</label>    
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
+                                        <label for="password" class="col-form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                                        <p class="mt-2">Debe estar entre 8 y 20 caracteres</p>   
+                                    </div>    
+                                </div>
 
-                                <label for="password" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
-                            </div>
-                            <div class="col justify-content-center align-items-center text-center">
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-outline-primary">Iniciar sesión</button>
+                                <!-- botones -->
+                                <div class="row my-3 justify-content-center align-items-center text-center">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-outline-primary w-100">Iniciar sesión</button>
+                                        <a type="button" class="btn btn-outline-success text-decoration-none w-100 my-2" href="./register.php">Registrarme</a>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <a type="button" class="btn btn-outline-success text-decoration-none text-body" href="./register.php">Registrase</a>
-                                </div>
+                                <!-- botones -->
                             </div>
+                                
                         </form>
                         <!-- formulario de login -->
 
