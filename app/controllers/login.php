@@ -32,10 +32,10 @@
                 echo "<script>alert('La solicitud no es POST')</script>";
             }
 
-            $username = htmlspecialchars(trim($_POST['username']), ENT_QUOTES, 'UTF-8'); 
-            $password = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8'); 
             $fname = htmlspecialchars(trim($_POST['fname']), ENT_QUOTES, 'UTF-8'); 
             $lname = htmlspecialchars(trim($_POST['lname']), ENT_QUOTES, 'UTF-8'); 
+            $username = htmlspecialchars(trim($_POST['username']), ENT_QUOTES, 'UTF-8'); 
+            $password = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8'); 
             $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8'); 
             $regdate = htmlspecialchars($_POST['regdate'], ENT_QUOTES, 'UTF-8'); 
             $age = htmlspecialchars($_POST['age'], ENT_QUOTES, 'UTF-8'); 
