@@ -11,8 +11,6 @@
         if($conn->connect_error){
             throw new Exception("error en conexión <br>", $conn->connect_error);
         }
-        echo "conexión establedia <br>";
-
     } catch(Exception $e){
         echo "<script>alert('base de datos -> conexión fallida')</script><br><br>" . $e->getMessage() . '<br>';
     }
