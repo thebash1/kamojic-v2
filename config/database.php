@@ -15,5 +15,4 @@
 
     } catch(Exception $e){
         echo "<script>alert('base de datos -> conexión fallida')</script><br><br>" . $e->getMessage() . '<br>';
-        
     }
