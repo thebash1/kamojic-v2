@@ -8,10 +8,11 @@
         *{
             margin: 0;
             padding: 0;
-            box-sizing: border-box;        
+            box-sizing: border-box;
+            font-family: monospace;        
         }
         .container{
-            margin: 1rem 1rem 0 0;
+            margin: 1rem 0 0 3rem;
         }
         ul{
             list-style-type: none;
@@ -20,7 +21,6 @@
             margin: 1rem 0 1rem 0;
         }
         a{
-            color: black;
             text-decoration: none;
         }
     </style>
