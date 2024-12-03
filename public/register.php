@@ -61,7 +61,14 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success mb-5">Registrarme</button>
+                        <div class="row justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-success w-50 my-3">Registrarme</button>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-5 text-center">
+                                <a href="./login.php" class="text-decoration-none">¿Tienes una cuenta?</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
