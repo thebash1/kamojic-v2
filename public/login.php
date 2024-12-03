@@ -22,17 +22,17 @@
                         <form action="../app/controllers/login.php" method="POST">
                             <div class="form mb-3">
                                 <label for="username" class="form-label">Usuario</label>
-                                <input type="text" class="form-control mt-2" id="username" name="username" placeholder="Usuario">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Usuario"><br>
 
-                                <label for="password" class="form-label mt-2">Contraseña</label>
-                                <input type="password" class="form-control mt-2" id="password" name="password" placeholder="Contraseña">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                             </div>
-                            <div class="mt-5">
+                            <div class="col justify-content-center align-items-center text-center">
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                                    <button type="submit" class="btn btn-outline-primary">Iniciar sesión</button>
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-success">Registrarse</button>
+                                    <a type="button" class="btn btn-outline-success text-decoration-none text-body" href="./register.php">Registrase</a>
                                 </div>
                             </div>
                         </form>

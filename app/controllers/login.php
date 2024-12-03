@@ -4,7 +4,6 @@
     if(session_status() === PHP_SESSION_NONE){
         session_start(); // inicializar la sesión en caso de que no lo este
         $_SESSION['error_message'] = 'Llena todos los campos';
-        echo "<script>window.location.href='../public/register.php'</script>";
         exit;
     } 
 
@@ -22,6 +21,9 @@
                 $dataUser = [$username, $password];
                 return $dataUser;
             }
+            echo "<script>alert('Campos vacios')</script>";
+            echo "<script>window.location.href='../public/login.php'</script>";
+            exit;
         }
 
         // función para validar campos del registro y enviarlos al modelo
@@ -32,7 +34,6 @@
 
             $username = htmlspecialchars(trim($_POST['username']), ENT_QUOTES, 'UTF-8'); 
             $password = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8'); 
-            
             $fname = htmlspecialchars(trim($_POST['fname']), ENT_QUOTES, 'UTF-8'); 
             $lname = htmlspecialchars(trim($_POST['lname']), ENT_QUOTES, 'UTF-8'); 
             $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8'); 
