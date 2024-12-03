@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="shortcut icon" href="../public/src/assets/icons/login.png" type="image/x-icon">
+    <title>Register</title>
+    <link rel="shortcut icon" href="../public/src/assets/icons/register.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
