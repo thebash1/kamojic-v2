@@ -17,17 +17,17 @@
                 <h1 class="my-3">Bienvenido a recuperar tu contraseña</h1>
                 <div class="row align-items-center">
                     <div class="col-sm-12 col-md-6 col-xl-4">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="recoverPassword">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Usuario</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Correo</label>
-                                <input type="password" class="form-control" id="email" name="email" placeholder="Correo">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Correo">
                                 <div id="emailHelp" class="form-text">Escribe tu correo registrado.</div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Enviar código</button>
+                            <button type="submit" class="btn btn-primary" onclick="resetPassword()">Enviar código</button>
                         </form>
                     </div>
                 </div>
@@ -37,6 +37,12 @@
         <footer></footer>
     </div>
 
+    <script>
+        function resetPassword(){
+            alert('Revisa tu correo');
+            document.getElementById('recoverPassword').reset();
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
