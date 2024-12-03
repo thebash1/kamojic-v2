@@ -17,12 +17,12 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center vh-100 flex-grow-1">
                     <div class="col-sm-12 col-md-6 col-xl-4">
-                        <h2 class="text-center">Login</h2>
+                        <h1 class="text-center mb-3">Login</h1>
 
                         <!-- formulario de login -->
                         <form action="../app/controllers/login.php" method="POST">
                             <div class="form mb-3">
-                                <div class="mt-5 row justify-content-center align-items-center">
+                                <div class="row justify-content-center align-items-center">
                                     <div class="col-sm-12 col-md-12">
                                         <label for="username" class="form-label">Usuario</label>    
                                         <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
@@ -44,6 +44,7 @@
                                     <div class="col-6">
                                         <button type="submit" class="btn btn-outline-primary w-100">Iniciar sesión</button>
                                         <a type="button" class="btn btn-outline-success text-decoration-none w-100 my-2" href="./register.php">Registrarme</a>
+                                        <a href="./resetPassword.php" class="text-center mb-3 text-decoration-none">¿Olvidaste tu contraseña?</a>
                                     </div>
                                 </div>
                                 <!-- botones -->
@@ -71,5 +72,6 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
