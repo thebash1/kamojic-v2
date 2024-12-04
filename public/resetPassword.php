@@ -15,7 +15,7 @@
         <main>
             <div class="container">
                 <h1 class="my-3">Bienvenido a recuperar tu contraseña</h1>
-                <div class="row align-items-center">
+                <div class="row">
                     <div class="col-sm-12 col-md-6 col-xl-4">
                         <form action="" method="POST" id="recoverPassword">
                             <div class="mb-3">
@@ -27,7 +27,14 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Correo">
                                 <div id="emailHelp" class="form-text">Escribe tu correo registrado.</div>
                             </div>
-                            <button type="submit" class="btn btn-primary" onclick="resetPassword()">Enviar código</button>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="./login.php" type="button" class="btn btn-secondary w-100">Regresar</a>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary w-100" onclick="resetPassword()">Enviar código</button>
+                                </div>    
+                            </div>
                         </form>
                     </div>
                 </div>

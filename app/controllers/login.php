@@ -1,11 +1,7 @@
 <?php
     include '../../config/database.php';
-
-    if(session_status() === PHP_SESSION_NONE){
-        session_start(); // inicializar la sesión en caso de que no lo este
-        $_SESSION['error_message'] = 'Llena todos los campos';
-        exit;
-    } 
+    session_start(); // inicializar la sesión en caso de que no lo este
+    $_SESSION['error_message'] = 'Llena todos los campos';  
 
     class UserController{
         // función para validar campos del login y enviarlos al modelo
@@ -18,8 +14,12 @@
             $username = htmlspecialchars($_POST['username'],ENT_QUOTES, 'UTF-8'); 
             $password = htmlspecialchars($_POST['password'], ENT_QUOTES, 'UTF-8');
             if(!empty($username) && !empty($password)){
-                $dataUser = [$username, $password];
-                return $dataUser;
+                if(!strlen($password) < 8 || !strlen($password) > 20){
+                    $dataUser = [$username, $password];
+                    return $dataUser;
+                }
+                echo "<script>alert('La contraseña no cumple con el requisito')</script>";
+                exit;
             }
             echo "<script>alert('Campos vacios')</script>";
             echo "<script>window.location.href='../public/login.php'</script>";
@@ -37,26 +37,29 @@
             $username = htmlspecialchars(trim($_POST['username']), ENT_QUOTES, 'UTF-8'); 
             $password = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8'); 
             $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8'); 
-            $regdate = htmlspecialchars($_POST['regdate'], ENT_QUOTES, 'UTF-8'); 
             $age = htmlspecialchars($_POST['age'], ENT_QUOTES, 'UTF-8'); 
             $gender = htmlspecialchars($_POST['gender'], ENT_QUOTES, 'UTF-8'); 
-            $validData = [strtolower($username), $password, strtolower($fname), strtolower($lname), $email, $regdate, $age, $gender];
-
+            $regdate = htmlspecialchars($_POST['regdate'], ENT_QUOTES, 'UTF-8'); 
+            $validData = [strtolower($fname), strtolower($lname), $username, strtolower($password), strtolower($email), $age, strtolower($gender), $regdate];
+            
             $data = [];
-            foreach($validData as $item){
-                if(!empty($item)){
-                    $data[] = $item;
-                }
-                if(isset($_SESSION['success_message'])){
-                    echo "<script>alert('{$_SESSION['error_message']}')</script>";
-                    unset($_SESSION['error_message']);
-                    exit;
+            if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                foreach($validData as $item){
+                    if(!empty($item)){
+                        $data[] = $item;
+                    }
+                    if(isset($_SESSION['success_message'])){
+                        echo "<script>alert('{$_SESSION['error_message']}')</script>";
+                        unset($_SESSION['error_message']);
+                        exit;
+                    } 
                 } 
-            } 
+            }
         }
     }
 
     class Sesion{
+        // funcion para validar sesion establecida y destruirla
         public function destroySesion(){
             if(session_status() !== PHP_SESSION_NONE){
                 session_unset();
@@ -67,6 +70,8 @@
         }
     }
 
-
+    $newUser = new UserController(); $newUser->register();
+    
+    $sesionUser = new Sesion(); $sesionUser->destroySesion();
 
 
