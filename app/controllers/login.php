@@ -5,6 +5,14 @@
 
     print_r($_POST);
     class UserController{
+        public function passwordHash($password){
+            if(!empty($password)){
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                return $hash;
+            }
+            echo "<script>alert('Contraseña vacia')</script>";
+        }
+
         // función para validar campos del login y enviarlos al modelo
         public function login(){        
             if($_SERVER['REQUEST_METHOD'] != 'POST'){

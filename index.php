@@ -33,7 +33,7 @@
         <ul>
             <li><a href="./public/login.php">1. Ir a login</a></li>
             <li><a href="./public/register.php">2. Ir a registro</a></li>
-            <li><a href="./config/database.php">3. Conexión base de datos</a></li>
+            <li><a href="https://github.com/thebash1">3. Ver perfil del programador en GitHub</a></li>
         </ul>
     </div>
 </body>
