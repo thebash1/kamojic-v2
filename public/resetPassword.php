@@ -17,7 +17,7 @@
                 <h1 class="my-3">Bienvenido a recuperar tu contraseña</h1>
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-xl-4">
-                        <form action="" method="POST" id="recoverPassword">
+                        <form action="../app/controllers/resetPassword.php" method="POST" id="recoverPassword">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Usuario</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
@@ -32,7 +32,7 @@
                                     <a href="./login.php" type="button" class="btn btn-secondary w-100">Regresar</a>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn btn-primary w-100" onclick="resetPassword()">Enviar código</button>
+                                    <button type="submit" class="btn btn-primary w-100">Enviar código</button>
                                 </div>    
                             </div>
                         </form>
@@ -44,12 +44,6 @@
         <footer></footer>
     </div>
 
-    <script>
-        function resetPassword(){
-            alert('Revisa tu correo');
-            document.getElementById('recoverPassword').reset();
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
