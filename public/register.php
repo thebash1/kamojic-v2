@@ -48,13 +48,13 @@
                             </div>
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="masculino" checked>
+                                    <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="masculino" checked>
                                     <label class="form-check-label" for="exampleRadios1">
                                         Masculino
                                     </label>
                                     </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="femenino">
+                                    <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="femenino">
                                     <label class="form-check-label" for="exampleRadios2">
                                         Femenino
                                     </label>
