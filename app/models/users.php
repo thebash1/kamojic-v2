@@ -1,5 +1,8 @@
 <?php
     include './config/database.php';
+    include '../controllers/login.php';
+    include '../controllers/resetPassword.php';
+
     class Users{
         private $fname;
         private $lname;
@@ -18,7 +21,9 @@
             $this->regdate = $regdate;
             $this->age = $age;
             $this->gender = $gender;
+        }   
+
+        public function __destruct(){
+            echo "<pre>Datos del usuario \n" . "{$_POST}\n</pre>";
         }
-        
-        
     }

@@ -1,12 +1,13 @@
 <?php
     include '../../config/database.php';
     session_start(); // inicializar la sesión en caso de que no lo este
-    $_SESSION['error_message'] = 'Llena todos los campos';  
+    $_SESSION['error_message'] = 'Hay campos vacios, llena todos los campos';  
 
+    print_r($_POST);
     class UserController{
         // función para validar campos del login y enviarlos al modelo
         public function login(){        
-            if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+            if($_SERVER['REQUEST_METHOD'] != 'POST'){
                 echo 'El método de solicitud no es POST';
                 return;
             }
@@ -14,12 +15,12 @@
             $username = htmlspecialchars($_POST['username'],ENT_QUOTES, 'UTF-8'); 
             $password = htmlspecialchars($_POST['password'], ENT_QUOTES, 'UTF-8');
             if(!empty($username) && !empty($password)){
-                if(!strlen($password) < 8 || !strlen($password) > 20){
-                    $dataUser = [$username, $password];
-                    return $dataUser;
+                if(strlen($password) < 8 && strlen($password) > 20){
+                    echo "<script>alert('La contraseña no cumple con el requisito')</script>";
+                    exit;
                 }
-                echo "<script>alert('La contraseña no cumple con el requisito')</script>";
-                exit;
+                $dataUser = [$username, $password];
+                return $dataUser;
             }
             echo "<script>alert('Campos vacios')</script>";
             echo "<script>window.location.href='../public/login.php'</script>";
@@ -28,8 +29,9 @@
 
         // función para validar campos del registro y enviarlos al modelo
         public function register(){
-            if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+            if($_SERVER['REQUEST_METHOD'] != 'POST'){
                 echo "<script>alert('La solicitud no es POST')</script>";
+                exit;
             }
 
             $fname = htmlspecialchars(trim($_POST['fname']), ENT_QUOTES, 'UTF-8'); 
@@ -48,12 +50,14 @@
                     if(!empty($item)){
                         $data[] = $item;
                     }
+
                     if(isset($_SESSION['success_message'])){
                         echo "<script>alert('{$_SESSION['error_message']}')</script>";
                         unset($_SESSION['error_message']);
                         exit;
                     } 
-                } 
+                }
+                return $data;
             }
         }
     }
@@ -61,17 +65,13 @@
     class Sesion{
         // funcion para validar sesion establecida y destruirla
         public function destroySesion(){
-            if(session_status() !== PHP_SESSION_NONE){
+            if(session_status() == PHP_SESSION_ACTIVE){
                 session_unset();
-                session_destroy();                
+                session_destroy();        
+                exit;        
             }
-            echo "<script>alert('La sesión no se ha iniciado aún')</script>";
+            echo "<script>alert('La sesión no ha sido creada')</script>";
             exit;
         }
     }
-
-    $newUser = new UserController(); $newUser->register();
-    
-    $sesionUser = new Sesion(); $sesionUser->destroySesion();
-
 
