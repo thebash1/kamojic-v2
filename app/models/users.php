@@ -3,24 +3,24 @@
     require '../controllers/login.php';
     require '../controllers/resetPassword.php';
 
-    class Users{
+    class User{
         private $fname;
         private $lname;
         private $username;
         private $password;
         private $email;
-        private $regdate;
         private $age;
         private $gender;
-        public function __construct($fname, $lname, $username, $password, $email, $regdate, $age, $gender){
+        private $regdate;
+        public function __construct($fname, $lname, $username, $password, $email, $age, $gender, $regdate){
             $this->fname = $fname;
             $this->lname = $lname;
             $this->username = $username;
             $this->password = $password;
             $this->email = $email;
-            $this->regdate = $regdate;
             $this->age = $age;
             $this->gender = $gender;
+            $this->regdate = $regdate;
         }   
 
         // Métodos GET y SET para cada propiedad
@@ -63,6 +63,22 @@
         public function setEmail($email) {
             $this->email = $email;
         }
+        
+        public function getAge() {
+            return $this->age;
+        }
+        
+        public function setAge($age) {
+            $this->age = $age;
+        }
+        
+        public function getGender() {
+            return $this->gender;
+        }
+        
+        public function setGender($gender) {
+            $this->gender = $gender;
+        }
 
         public function getRegdate() {
             return $this->regdate;
@@ -72,35 +88,21 @@
             $this->regdate = $regdate;
         }
 
-        public function getAge() {
-            return $this->age;
-        }
-
-        public function setAge($age) {
-            $this->age = $age;
-        }
-
-        public function getGender() {
-            return $this->gender;
-        }
-
-        public function setGender($gender) {
-            $this->gender = $gender;
-        }
-
         public function __destruct(){
             echo "<pre>Datos del usuario \n" . "{$_POST}\n</pre>";
         }
     }
 
     class dataMethods{
-        public function addUser(){
-            $newUser = new UserController();
-            $data[] = '*codigo*'; 
-            foreach($data as $column){
-                
-            }
+
+        function addUser(){
+            $registerdata = new UserController();
+            $infodata = $registerdata->registerData();
+            $user = new User($infodata[0],$infodata[1],$infodata[2],$infodata[3],$infodata[4],$infodata[5],$infodata[6],$infodata[7]);
             
+            //$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, user_name, password_user, email, age, gender, register_date) 
+            //VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            //$stmt->execute($user->getFname(), $user->getLname(), $user->getUsername(),$user->getPassword(), $user->getEmail(), $user->getAge(), $user->getGender(), $user->getRegdate());          
         }
 
         public function updateUser(){
