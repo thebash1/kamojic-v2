@@ -24,12 +24,15 @@
                     $conn = new mysqli($this->host, $this->username, $this->password,$this->dbname,$this->port);
                     if($conn->connect_error){
                         throw new Exception("error en conexión <br>", $conn->connect_error);
+                    } else{
+                        return $this->connection;            
                     }
+
                 } catch(Exception $e){
-                    echo "<script>alert('base de datos -> conexión fallida')</script><br><br>" . $e->getMessage() . '<br>';
+                    echo "<script>alert('base de datos -> conexión fallida')</script><br>" . $e->getMessage() . '<br>';
                 }
             }
-            return $this->connection;
+            return null;
         }
 
     }

@@ -93,16 +93,39 @@
         }
     }
 
-    class dataMethods{
-
+    class addUsers{
         function addUser(){
+            // crear usuario y traer datos
             $registerdata = new UserController();
             $infodata = $registerdata->registerData();
             $user = new User($infodata[0],$infodata[1],$infodata[2],$infodata[3],$infodata[4],$infodata[5],$infodata[6],$infodata[7]);
+            $getMethods = new dataMethods();
             
-            //$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, user_name, password_user, email, age, gender, register_date) 
-            //VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            //$stmt->execute($user->getFname(), $user->getLname(), $user->getUsername(),$user->getPassword(), $user->getEmail(), $user->getAge(), $user->getGender(), $user->getRegdate());          
+            // preparando la insercción a la base de datos
+            $conn = $getMethods->getConnection();
+            if($conn != null){
+                $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, user_name, password_user, email, age, gender, register_date) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("iissssssss", $user->getFname(), $user->getLname(), $user->getUsername(), $user->getPassword(), $user->getEmail(), $user->getAge(), $user->getGender(), $user->getRegdate());
+                $stmt->execute();
+                // insercción ejecutada
+            } else{
+                echo "<script>alert('datos de conexión nulos')</script>";
+            }
+            echo "<script>alert('usuario guardado correctamente')</script>";
+            
+            //enviar a la página principal de la aplicación
+            ob_start();
+            header("Location: ../../public/home.php");
+            ob_end_flush();
+        }
+
+        public function addAdmin(){
+            
+        }
+
+        public function addEmployee(){
+
         }
 
         public function updateUser(){

@@ -11,7 +11,7 @@
         public function isPOST(){
             if($_SERVER['REQUEST_METHOD'] != 'POST'){
                 echo 'El método de solicitud no es POST';
-                exit;
+                exit();
             }
         }
 
@@ -24,14 +24,14 @@
             if(!empty($username) && !empty($password)){
                 if(strlen($password) < 8 && strlen($password) > 20){
                     echo "<script>alert('La contraseña no cumple con el requisito')</script>";
-                    exit;
+                    exit();
                 }
                 $dataUser = [$username, $password];
                 return $dataUser;
             }
             echo "<script>alert('Campos vacios')</script>";
             echo "<script>window.location.href='../public/login.php'</script>";
-            exit;
+            exit();
         }
 
         // función para validar campos del registro y enviarlos al modelo
@@ -57,7 +57,7 @@
                 if(isset($_SESSION['success_message'])){
                     echo "<script>alert('{$_SESSION['error_message']}')</script>";
                     unset($_SESSION['error_message']);
-                    exit;
+                    exit();
                 } 
             }
             return $data;
@@ -70,10 +70,10 @@
             if(session_status() == PHP_SESSION_ACTIVE){
                 session_unset();
                 session_destroy();        
-                exit;        
+                exit();        
             }
             echo "<script>alert('La sesión no ha sido creada')</script>";
-            exit;
+            exit();
         }
     }
 
